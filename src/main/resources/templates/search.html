@@ -37,7 +37,21 @@
     <hr />
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
-
+    <ol>
+        <li th:each="search : ${displaySearchResults}" th:text="${search/results}"></li>
+    </ol>
+    <table>
+        <th:block th:each="search : ${searches}">
+            <tr>
+                <td th:text="${search.id}"></td>
+                <td th:text="${search.name}"></td>
+                <td th:text="${search.employer}"></td>
+                <td th:text="${search.location"}></td>
+                <td th:text="${search.position"}></td>
+                <td th:text="${search.skill"}></td>
+            </tr>
+        </th:block>
+    </table>
 </div>
 
 </body>
