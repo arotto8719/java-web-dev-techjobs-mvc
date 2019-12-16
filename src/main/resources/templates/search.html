@@ -40,6 +40,7 @@
     <ol>
         <li th:each="search : ${displaySearchResults}" th:text="${search/results}"></li>
     </ol>
+
     <table>
         <th:block th:each="search : ${searches}">
             <tr>
