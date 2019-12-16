@@ -30,7 +30,7 @@ public class SearchController {
             All = JobData.findAll();
             model.addAttribute("search", "All Jobs");
         } else {
-            post = ListController.columnChoices(column, value);
+            search = ListController.columnChoices(column, value);
             model.addAttribute("all", "Results with " + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("search", "all");
