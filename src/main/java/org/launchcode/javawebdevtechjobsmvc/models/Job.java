@@ -13,7 +13,7 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // Initialize a unique ID.
+//     Initialize a unique ID.
     public Job() {
         id = nextId;
         nextId++;

@@ -10,7 +10,9 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <form th:action="@{/search/results(column=${column.value},value=${searchTerm.value})}" method = "post">
+    <span th:text="|${column} + ' ' + ${searchTerm}|">
+    </span>
+
         <h2>Search by:</h2>
 
         <p>
@@ -32,7 +34,7 @@
         </p>
 
         <input type="submit" value="Search" />
-    </form>
+
 
     <hr />
 
@@ -42,7 +44,9 @@
 <!--    </ol>-->
 
     <table class="job-listing">
-            <tr th:each="search : ${searches}">
+            <tr th:block th:each="search : ${searches}">
+            </tr>
+            <tr>
                 <td th:text="${search.id}"></td>
                 <td th:text="${search.name}"></td>
                 <td th:text="${search.employer}"></td>
@@ -50,6 +54,7 @@
                 <td th:text="${search.positionType}"></td>
                 <td th:text="${search.coreCompetency}"></td>
             </tr>
+            </th:block>
     </table>
 </div>
 

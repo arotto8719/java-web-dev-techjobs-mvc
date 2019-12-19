@@ -13,14 +13,17 @@
     <!-- TODO #1 - Use a loop to display job results in a table. -->
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
     <table class="job-listing">
-        <tr th:each="job : ${jobs}">
-        <td th:text="ID: ${job.id}"></td>
-        <td th:text="Name: ${job.name}"></td>
-        <td th:text="Employer: ${job.employer}"></td>
-        <td th:text="Location: ${job.location}"></td>
-        <td th:text="Position Type: ${job.positionType}"></td>
-        <td th:text="Skill: ${job.coreCompetency}"></td>
+        <tr th:block th:each="job : ${jobs}">
         </tr>
+        <tr>
+            <td th:text="${job.id}">ID:</td>
+            <td th:text="${job.name}">Name:</td>
+            <td th:text="${job.employer}">Employer:</td>
+            <td th:text="${job.location}">Location:</td>
+            <td th:text="${job.positionType}">Position Type:</td>
+            <td th:text="${job.coreCompetency}">Skill:</td>
+        </tr>
+        </th:block>
     </table>
 
 </div>
