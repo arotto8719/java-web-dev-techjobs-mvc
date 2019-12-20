@@ -8,13 +8,11 @@
 
 <div class="container body-content">
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
-    <span th:text="|${column} + ' ' + ${searchTerm}|">
-    </span>
+    <h1 th:text="${title}"></h1>
 
         <h2>Search by:</h2>
 
+        <form action="search/results">
         <p>
             <span th:each="column : ${columns}">
                 <input
@@ -33,8 +31,8 @@
             <input type="text" name="searchTerm" id="searchTerm" />
         </p>
 
-        <input type="submit" value="Search" />
-
+        <input type="submit" value="Search">
+        </form>
 
     <hr />
 
@@ -44,17 +42,15 @@
 <!--    </ol>-->
 
     <table class="job-listing">
-            <tr th:block th:each="search : ${searches}">
+            <tr th:each="search : ${searches}">
+
+                <td th:text="${search.getId()}">ID: </td>
+                <td th:text="${search.getName()}">Name: </td>
+                <td th:text="${search.getEmployer()}">Employer: </td>
+                <td th:text="${search.getLocation()}">Location: </td>
+                <td th:text="${search.getPositionType()}">Position Type: </td>
+                <td th:text="${search.getCoreCompetency()}">Skill: </td>
             </tr>
-            <tr>
-                <td th:text="${search.id}"></td>
-                <td th:text="${search.name}"></td>
-                <td th:text="${search.employer}"></td>
-                <td th:text="${search.location}"></td>
-                <td th:text="${search.positionType}"></td>
-                <td th:text="${search.coreCompetency}"></td>
-            </tr>
-            </th:block>
     </table>
 </div>
 
